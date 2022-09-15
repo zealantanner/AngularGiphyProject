@@ -12,6 +12,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTableModule } from '@angular/material/table';
 import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
+import { MatTreeModule } from '@angular/material/tree';
+import { MatSliderModule } from '@angular/material/slider';
 
 @NgModule({
     declarations: [],
@@ -28,6 +30,8 @@ import { MatOptionModule } from '@angular/material/core';
         MatTableModule,
         MatSelectModule,
         MatOptionModule,
+        MatTreeModule,
+        MatSliderModule,
     ],
     exports: [
         MatToolbarModule,
@@ -43,6 +47,8 @@ import { MatOptionModule } from '@angular/material/core';
         MatTableModule,
         MatSelectModule,
         MatOptionModule,
+        MatTreeModule,
+        MatSliderModule,
     ]
 })
 export class MaterialModule { }

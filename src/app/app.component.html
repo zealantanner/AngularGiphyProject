@@ -4,22 +4,19 @@
     </mat-drawer>
     <mat-drawer-content>
         <mat-toolbar color="primary">
+
             <mat-toolbar-row>
-                <!-- <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-                    <mat-icon>menu</mat-icon>
-                </button> -->
+                <button mat-icon-button (click)="drawer.toggle()" class="example-icon" aria-label="Example icon-button with menu icon">
+                    <mat-icon fontIcon="menu"></mat-icon>
+                </button>
+                <span>Angular Giphy Project</span>
+                <span class="example-spacer"></span>
                 <!-- <button mat-raised-button (click)="drawer.toggle()">Toggle drawer</button> -->
-                <div>Angular Giphy Project</div>
+                <search-bar></search-bar>
             </mat-toolbar-row>
         </mat-toolbar>
+        <main-content></main-content>
 
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi corporis nobis debitis suscipit
-            consequuntur temporibus fuga placeat nostrum. Est fuga nostrum vero consectetur rerum recusandae laboriosam,
-            aliquid aut eum dolorum?</p>
+
     </mat-drawer-content>
 </mat-drawer-container>
-
-
-
-
-<!-- <main-content></main-content> -->

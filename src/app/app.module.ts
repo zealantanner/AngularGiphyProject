@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SideNavComponent } from './components/side-nav/side-nav.component';
 import { MainContentComponent } from './components/main-content/main-content.component';
 import { SearchComponent } from './components/search/search.component';
+import { GifGridComponent } from './components/gif-grid/gif-grid.component';
 
 @NgModule({
     declarations: [
@@ -15,6 +16,7 @@ import { SearchComponent } from './components/search/search.component';
         SideNavComponent,
         MainContentComponent,
         SearchComponent,
+        GifGridComponent,
     ],
     imports: [
         AppRoutingModule,
