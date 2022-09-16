@@ -9,6 +9,8 @@ import { SideNavComponent } from './components/side-nav/side-nav.component';
 import { MainContentComponent } from './components/main-content/main-content.component';
 import { SearchComponent } from './components/search/search.component';
 import { GifGridComponent } from './components/gif-grid/gif-grid.component';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
     declarations: [
@@ -23,6 +25,7 @@ import { GifGridComponent } from './components/gif-grid/gif-grid.component';
         BrowserModule,
         MaterialModule,
         BrowserAnimationsModule,
+        HttpClientModule,
     ],
     providers: [],
     bootstrap: [AppComponent]

@@ -4,15 +4,13 @@
     </mat-drawer>
     <mat-drawer-content>
         <mat-toolbar color="primary">
-
             <mat-toolbar-row>
                 <button mat-icon-button (click)="drawer.toggle()" class="example-icon" aria-label="Example icon-button with menu icon">
                     <mat-icon fontIcon="menu"></mat-icon>
                 </button>
                 <span>Angular Giphy Project</span>
                 <span class="example-spacer"></span>
-                <!-- <button mat-raised-button (click)="drawer.toggle()">Toggle drawer</button> -->
-                <search-bar></search-bar>
+                <button mat-raised-button (click)="drawer.toggle()">Toggle drawer</button>
             </mat-toolbar-row>
         </mat-toolbar>
         <main-content></main-content>

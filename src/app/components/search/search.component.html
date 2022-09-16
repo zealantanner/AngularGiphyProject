@@ -1,7 +1,7 @@
 <mat-form-field appearance="fill">
     <mat-label>Search Gifs:</mat-label>
-    <input color="accent" matInput type="search">
-    <button matSuffix mat-icon-button >
+    <input color="accent" matInput type="search" placeholder='special variable text here' (keyup.enter)="search()">
+    <button matSuffix mat-icon-button (click)="search()">
         <mat-icon fontIcon="search"></mat-icon>
     </button>
 </mat-form-field>
