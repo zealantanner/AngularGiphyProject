@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, map } from 'rxjs';
+import { Observable, map, tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Gif } from '../interfaces/gif';
 import { HttpClient } from '@angular/common/http';
@@ -10,17 +10,26 @@ import { HttpClient } from '@angular/common/http';
 })
 export class GifService {
     #apiKey = 'KkQIVU7CgUTlND28O2bDZveA3Z8Vl1kz';
-    gifs: Gif[] = []
+    limit = 12
     constructor(private http: HttpClient) { }
     search(text: string): Observable<Gif[]> {
-        text = encodeURI(text)
-        console.log('searching')
-        const response = this.http.get<Gif[]>(`https://api.giphy.com/v1/gifs/search?api_key=${this.#apiKey}&limit=12&q=${text}`)
+        const encodedText = encodeURI(text)
+        console.log('searching for ' + text)
+        const response = this.http.get<Gif[]>(`https://api.giphy.com/v1/gifs/search?api_key=${this.#apiKey}&limit=${this.limit}&q=${encodedText}`).pipe(
+            map(res => res),
+            tap(res => console.log(res)),
+        )
         console.log(response)
-        console.log(text)
         return response
         // else return 'error'
     };
+    getTrending(): Observable<Gif[]> {
+
+        console.log('getting trending')
+        const response = this.http.get<Gif[]>(`api.giphy.com/v1/gifs/trending?api_key=${this.#apiKey}&limit=${this.limit}`)
+        console.log(response)
+        return response
+    }
     // searchByName(searchText: string): Observable<Gif[]> {
     //     const alteredText = searchText.replace(/\s/g, '+');
     //     return this.http.get<Gif[]>(`https://api.boardgameatlas.com/api/search?name=${alteredText}&client_id=${environment.boardgameAPI}`).pipe(

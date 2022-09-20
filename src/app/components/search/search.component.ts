@@ -15,23 +15,20 @@ import { GifService } from 'src/app/services/gif.service';
 })
 export class SearchComponent implements OnInit {
     searchText: string = '';
-    gifs: Gif[] = []
+
     #apiKey;
     constructor(
         private http: HttpClient,
-        private gifService: GifService
+        private gifService: GifService,
     ) {
         this.#apiKey = 'KkQIVU7CgUTlND28O2bDZveA3Z8Vl1kz';
     }
 
     ngOnInit(): void {
     }
-    search(): Observable<Gif[]> {
-        console.log(this.gifService.search('apple'))
-        console.log('searching')
-        const response = this.http.get<Gif[]>(`https://api.giphy.com/v1/gifs/search?api_key=${this.#apiKey}&limit=12&q=${this.searchText}`)
-        console.log(response)
-        console.log(this.searchText)
+    search() {
+        console.log()
+        const response = this.gifService.search(this.searchText)
         return response
         // else return 'error'
     };
