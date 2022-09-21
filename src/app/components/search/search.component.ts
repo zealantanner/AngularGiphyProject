@@ -15,6 +15,7 @@ import { GifService } from 'src/app/services/gif.service';
 })
 export class SearchComponent implements OnInit {
     searchText: string = '';
+    
 
     #apiKey;
     constructor(
@@ -27,9 +28,9 @@ export class SearchComponent implements OnInit {
     ngOnInit(): void {
     }
     search() {
-        console.log()
-        const response = this.gifService.search(this.searchText)
-        return response
+        const response = this.gifService.search(this.searchText).subscribe()
+        console.log(response)
+        // console.log(this.gifService.gifs)
         // else return 'error'
     };
     //     getById(gameId: string): Observable<Game> {
@@ -38,9 +39,5 @@ export class SearchComponent implements OnInit {
     //         );
     //     }
     // }
-    searsch() {
-        console.log('hi')
-        console.log('apple')
-    }
 
 }

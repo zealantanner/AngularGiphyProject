@@ -16,6 +16,6 @@ export interface Gif {
     create_datetime: string;
     import_datetime: string;
     trending_datetime: string;
-    images: Object;
+    images?: Object;
     title: string;
 }

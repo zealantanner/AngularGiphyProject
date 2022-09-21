@@ -11,6 +11,11 @@ import { HttpClient } from '@angular/common/http';
 export class GifService {
     #apiKey = 'KkQIVU7CgUTlND28O2bDZveA3Z8Vl1kz';
     limit = 12
+    offset = 500
+    public static gifObservable:any;
+
+
+
     constructor(private http: HttpClient) { }
     search(text: string): Observable<Gif[]> {
         const encodedText = encodeURI(text)
@@ -19,17 +24,22 @@ export class GifService {
             map(res => res),
             tap(res => console.log(res)),
         )
-        console.log(response)
+        if(!GifService.gifObservable) {
+            GifService.gifObservable = response
+        }
+        console.log('bleh', GifService.gifObservable)
         return response
-        // else return 'error'
-    };
+    }
     getTrending(): Observable<Gif[]> {
-
         console.log('getting trending')
-        const response = this.http.get<Gif[]>(`api.giphy.com/v1/gifs/trending?api_key=${this.#apiKey}&limit=${this.limit}`)
+        const response = this.http.get<Gif[]>(`https://api.giphy.com/v1/gifs/trending?api_key=${this.#apiKey}&limit=${this.limit}`).pipe(
+            map(res => res),
+            tap(res => console.log(res)),
+        )
         console.log(response)
         return response
     }
+    // getById(gifId:)
     // searchByName(searchText: string): Observable<Gif[]> {
     //     const alteredText = searchText.replace(/\s/g, '+');
     //     return this.http.get<Gif[]>(`https://api.boardgameatlas.com/api/search?name=${alteredText}&client_id=${environment.boardgameAPI}`).pipe(
@@ -41,4 +51,4 @@ export class GifService {
     //         map(response => response['gifs'])
     //     );
     // }
-}
+};
