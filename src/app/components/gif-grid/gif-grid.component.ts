@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Gif } from 'src/app/interfaces/gif';
 import { GifService } from 'src/app/services/gif.service';
 
@@ -7,23 +7,22 @@ import { GifService } from 'src/app/services/gif.service';
     templateUrl: './gif-grid.component.html',
     styleUrls: ['./gif-grid.component.scss']
 })
-export class GifGridComponent implements OnInit, OnChanges {
-    gifs:any;
+export class GifGridComponent implements OnInit {
+    gifs?: Gif[] = [];
 
     constructor(
         private gifService: GifService,
     ) { }
+    activate() {
 
-
-    ngOnInit(): void {
-        // this.gifs = this.gifService.search.subscribe()
-        console.log('gifs frpm gif comp', this.gifs)
-
+        console.log(this.gifs)
+        // this.gifs = this.gifService.gifObservable
     }
 
-    ngOnChanges(): void {
-        this.gifs = GifService.gifObservable
-        console.log('gifs frpm gif comp', this.gifs)
+    ngOnInit(): void {
+        // this.gifService.search().subscribe(results => this.gifs = results)
+        // this.gifs = this.gifService.search.subscribe()
+        console.log('gifs from gif comp', this.gifs)
 
     }
 }
