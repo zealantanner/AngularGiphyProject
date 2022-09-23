@@ -1,4 +1,5 @@
 export interface Gif {
+    data: Object;
     type: string;
     id: string;
     slug: string;

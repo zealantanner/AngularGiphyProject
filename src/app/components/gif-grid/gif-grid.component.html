@@ -1,20 +1,15 @@
-<div class="searched-gifs">
-    <mat-card>this is the gif grid</mat-card>
-    <button (click)='activate()'>press me!</button>
-    <mat-card class="game-card" *ngFor="let gif of gifs">
-
-        <div class="searched-gifs">
-            <mat-card-title>{{gif.title}}</mat-card-title>
-            <img mat-card-image [src]="gif.images.original.url">
-            <mat-card-actions>
-                <!-- <button mat-mini-fab color="primary" matTooltip="Add to list of owned games">
-                    <mat-icon class="material-icons-outlined">verified</mat-icon>
-                </button> -->
-                <!-- <button mat-mini-fab matTooltip="Add to wishlist" (click)="updateWishlist($event, game)">
-                    <mat-icon>switch_access_shortcut</mat-icon>
-                </button> -->
-            </mat-card-actions>
-        </div>
+<mat-card>this is the gif grid</mat-card>
+<button (click)='activate()'>press me!</button>
+<div class="grid">
+    <mat-card class="gif-card" *ngFor="let gif of gifs">
+        <!-- <mat-card-title>{{gif.title}}</mat-card-title> -->
+        <img mat-card-image class="gif" [src]="gif.images.original_still.url">
+        <!-- <img mat-card-image class="gif" [src]="gif.images.original.url"> -->
+        <mat-card-actions>
+            <button mat-mini-fab color="primary" matTooltip="Add to list of owned gifs">
+                <mat-icon class="material-icons-outlined">verified</mat-icon>
+            </button>
+        </mat-card-actions>
     </mat-card>
 </div>
 

@@ -8,21 +8,19 @@ import { GifService } from 'src/app/services/gif.service';
     styleUrls: ['./gif-grid.component.scss']
 })
 export class GifGridComponent implements OnInit {
-    gifs?: Gif[] = [];
+    gifs: Gif[] = [];
 
     constructor(
         private gifService: GifService,
     ) { }
     activate() {
-
+        // this.gifService.search().subscribe(results => this.gifs = results)
         console.log(this.gifs)
-        // this.gifs = this.gifService.gifObservable
+        // console.log(this.gifs.data)
     }
 
     ngOnInit(): void {
-        // this.gifService.search().subscribe(results => this.gifs = results)
+        this.gifService.search('',true).subscribe((results: any) => this.gifs = results.data)
         // this.gifs = this.gifService.search.subscribe()
-        console.log('gifs from gif comp', this.gifs)
-
     }
 }

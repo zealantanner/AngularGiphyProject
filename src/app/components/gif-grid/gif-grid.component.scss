@@ -1,8 +1,27 @@
-.searched-gifs {
+.grid {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
 }
-.gif-card {
-    width: 100px;
+
+mat-card {
+    width: 200px;
+    height: 100%;
+    position: relative;
+    margin-bottom: 20px;
+    padding-bottom: 0;
+    .gif {
+        margin-bottom: 0;
+    }
+
+    mat-card-actions {
+        position: absolute;
+        bottom: 15px;
+        display: none;
+    }
+    :hover {
+        mat-card-actions {
+            display: grid;
+        }
+    }
 }
