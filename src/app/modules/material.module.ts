@@ -14,6 +14,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
 import { MatTreeModule } from '@angular/material/tree';
 import { MatSliderModule } from '@angular/material/slider';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+
 
 @NgModule({
     declarations: [],
@@ -32,6 +34,7 @@ import { MatSliderModule } from '@angular/material/slider';
         MatOptionModule,
         MatTreeModule,
         MatSliderModule,
+        MatSnackBarModule,
     ],
     exports: [
         MatToolbarModule,
@@ -49,6 +52,7 @@ import { MatSliderModule } from '@angular/material/slider';
         MatOptionModule,
         MatTreeModule,
         MatSliderModule,
+        MatSnackBarModule,
     ]
 })
 export class MaterialModule { }

@@ -17,19 +17,18 @@ export class SearchComponent implements OnInit {
     searchText: string = '';
 
 
-    #apiKey;
     constructor(
         private http: HttpClient,
         private gifService: GifService,
     ) {
-        this.#apiKey = 'KkQIVU7CgUTlND28O2bDZveA3Z8Vl1kz';
     }
 
     ngOnInit(): void {
+        this.gifService.search('', true)
     }
     search() {
-        const response = this.gifService.search(this.searchText).subscribe()
-        console.log(this.gifService.search(this.searchText))
+        const response = this.gifService.search(this.searchText)
+        console.log(response)
         // else return 'error'
     };
     //     getById(gameId: string): Observable<Game> {

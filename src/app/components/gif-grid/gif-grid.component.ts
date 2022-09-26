@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Gif } from 'src/app/interfaces/gif';
 import { GifService } from 'src/app/services/gif.service';
+import { NgxMasonryOptions } from 'ngx-masonry';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
     selector: 'gif-grid',
@@ -11,16 +13,25 @@ export class GifGridComponent implements OnInit {
     gifs: Gif[] = [];
 
     constructor(
+        private snackbar: MatSnackBar,
         private gifService: GifService,
     ) { }
-    activate() {
-        // this.gifService.search().subscribe(results => this.gifs = results)
-        console.log(this.gifs)
-        // console.log(this.gifs.data)
+    update() {
+        this.gifs = this.gifService.resultsToRender
+        console.log('favorites: ', this.gifService.favorites)
     }
 
     ngOnInit(): void {
-        this.gifService.search('',true).subscribe((results: any) => this.gifs = results.data)
+        // this.snackbar.open('Message archived', 'Undo', {
+        //     duration: 3000
+        // });
+
         // this.gifs = this.gifService.search.subscribe()
+    }
+    saveToFavs(id: string) {
+        // console.log(id)
+        // console.log(this.gifService.favorites)
+        this.gifService.saveToFavorites(id)
+
     }
 }

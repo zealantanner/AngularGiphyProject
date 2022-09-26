@@ -11,6 +11,8 @@ import { MainContentComponent } from './components/main-content/main-content.com
 import { SearchComponent } from './components/search/search.component';
 import { GifGridComponent } from './components/gif-grid/gif-grid.component';
 import { HttpClientModule } from '@angular/common/http';
+import { NgxMasonryModule } from 'ngx-masonry';
+
 
 
 @NgModule({
@@ -28,6 +30,7 @@ import { HttpClientModule } from '@angular/common/http';
         BrowserAnimationsModule,
         HttpClientModule,
         FormsModule,
+        NgxMasonryModule,
     ],
     providers: [],
     bootstrap: [AppComponent]

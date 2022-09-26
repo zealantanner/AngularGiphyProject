@@ -1,17 +1,33 @@
 <mat-card>this is the gif grid</mat-card>
-<button (click)='activate()'>press me!</button>
+<button (click)='update()'>press me!</button>
 <div class="grid">
-    <mat-card class="gif-card" *ngFor="let gif of gifs">
-        <!-- <mat-card-title>{{gif.title}}</mat-card-title> -->
-        <img mat-card-image class="gif" [src]="gif.images.original_still.url">
-        <!-- <img mat-card-image class="gif" [src]="gif.images.original.url"> -->
-        <mat-card-actions>
+    <!-- <mat-card class="gif-card" *ngFor="let gif of gifs"> -->
+    <!-- <mat-card-title>{{gif.title}}</mat-card-title> -->
+    <!-- <img mat-card-image class="gif" [src]="gif.images.original_still.url"> -->
+    <!-- <img mat-card-image class="gif" [src]="gif.images.original.url"> -->
+    <!-- <mat-card-actions>
             <button mat-mini-fab color="primary" matTooltip="Add to list of owned gifs">
                 <mat-icon class="material-icons-outlined">verified</mat-icon>
             </button>
-        </mat-card-actions>
-    </mat-card>
+        </mat-card-actions> -->
+    <!-- </mat-card> -->
 </div>
+<ngx-masonry class="grid" [options]="{horizontalOrder:false}">
+    <div ngxMasonryItem *ngFor="let gif of gifs">
+
+        <mat-card [style.height]="gif.images.fixed_width_still.height" >
+            <img class="gif" loading="lazy" masonryLazy mat-card-image [src]="gif.images.fixed_width_still.url" />
+            <mat-card-actions>
+                <button mat-mini-fab color="primary" matTooltip="Add to favorite gifs" (click)="saveToFavs(gif.id)">
+                    <mat-icon class="material-icons-outlined">verified</mat-icon>
+                </button>
+            </mat-card-actions>
+
+        </mat-card>
+    </div>
+
+
+</ngx-masonry>
 
 <!-- <div class="card-title-container">
         </div> -->
