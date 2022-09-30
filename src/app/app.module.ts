@@ -13,6 +13,12 @@ import { GifGridComponent } from './components/gif-grid/gif-grid.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxMasonryModule } from 'ngx-masonry';
 
+import { SignInComponent } from './components/signin/signin.component';
+import { AuthService } from './services/auth.service';
+import { environment } from '../environments/environment';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+
 
 
 @NgModule({
@@ -22,6 +28,7 @@ import { NgxMasonryModule } from 'ngx-masonry';
         MainContentComponent,
         SearchComponent,
         GifGridComponent,
+        SignInComponent,
     ],
     imports: [
         AppRoutingModule,
@@ -31,8 +38,10 @@ import { NgxMasonryModule } from 'ngx-masonry';
         HttpClientModule,
         FormsModule,
         NgxMasonryModule,
+        AngularFireModule.initializeApp(environment.firebaseConfig),
+        AngularFireAuthModule,
     ],
-    providers: [],
+    providers: [AuthService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

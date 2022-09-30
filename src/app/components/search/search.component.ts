@@ -20,15 +20,14 @@ export class SearchComponent implements OnInit {
     constructor(
         private http: HttpClient,
         private gifService: GifService,
-    ) {
-    }
+    ) {}
 
     ngOnInit(): void {
         this.gifService.search('', true)
     }
     search() {
-        const response = this.gifService.search(this.searchText)
-        console.log(response)
+        this.gifService.search(this.searchText)
+        console.log(this.gifService.search(this.searchText))
         // else return 'error'
     };
     //     getById(gameId: string): Observable<Game> {
